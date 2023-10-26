@@ -1,13 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import ScreenSaver from '../../../components/ScreenSaver';
+import Link from "next/link";
 
-function ScreenSaverExercise() {
+const COLORS = ["lavender", "slateblue", "hotpink", "white"];
+
+function ScreenSaverSelector() {
   return (
-    <main className="screen-saver-wrapper">
-      <ScreenSaver color="red" />
-    </main>
+    <>
+      <p>Choose your color:</p>
+      <ol>
+        {COLORS.map((color) => (
+          <li key={color}>
+            <Link href={`/exercises/01-screensaver/${color}`}>{color}</Link>
+          </li>
+        ))}
+      </ol>
+    </>
   );
 }
 
-export default ScreenSaverExercise;
+export default ScreenSaverSelector;
